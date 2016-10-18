@@ -1,0 +1,26 @@
+language: php
+
+php:
+  - '7.0'
+
+matrix:
+  fast_finish: true
+
+addons:
+  mariadb: '10.0'
+
+services:
+  - mysql
+
+before_install:
+
+install:
+
+before_script:
+  - mysqld --version
+  - mysql -u root -e "create database test;"
+  - mysql -u root test < db.sql
+  
+script:
+  - echo 'hi'
+  
